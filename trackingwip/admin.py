@@ -9,18 +9,56 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class DashboardAdmin(admin.ModelAdmin):
-    list_display=('wom', 'customer' , 'contract_value', 'paid_by_customer_formated', 'unpaid_by_customer_formated','cost_paid', 'cost_to_finish', 'deadline', 'finish_estimation', 'invoice_sent', 'invoice_sent_days', 'pic', 'note')
+    personel={
+        "940004" : "CHAIRUL ANWAR LUBIS",
+        "871146" : "FERI SURYAKUSUMAH",
+        "120003" : "TONI GUSTANI",
+        "871454" : "DWI FADJAR DISTIANTONO",
+        "871413" : "BUDI SETYONO",
+        "871545" : "BAMBANG HARIYANTO",
+        "920621" : "IRWAN WAHYU",
+        "900056" : "TARYADI",
+        "880141" : "MEINGKAR S.",
+        "999086" : "MARGINATA SEBESTINA",
+        
+
+
+    }
+
+    list_display=('wom', 'customer' , 'contract_value_formated',  'pic_name', 'paid_by_customer_formated', 'unpaid_by_customer_formated', 'cost_paid_formated', 'cost_to_finish_formated', 'deadline', 'finish_estimation', 'note')
     def paid_by_customer_formated(self , obj):
-        return "%2f" % obj.paid_by_customer
+        return "{:0,.2f}".format(obj.paid_by_customer)
     paid_by_customer_formated.short_description = "Paid by Customer"
+    paid_by_customer_formated.admin_order_field = "paid_by_customer"
 
     def unpaid_by_customer_formated(self , obj):
-        return "%2f" % obj.unpaid_by_customer
+        return "{:0,.2f}".format(obj.unpaid_by_customer)
     unpaid_by_customer_formated.short_description = "Unpaid by Customer"
+    unpaid_by_customer_formated.admin_order_field = "unpaid_by_customer"
+
+    def contract_value_formated(self , obj):
+        return "{:0,.2f}".format(obj.contract_value)
+    contract_value_formated.short_description = "Contract Value"
+    contract_value_formated.admin_order_field = "contract_value"
+    
+    def cost_paid_formated(self , obj):
+        return "{:0,.2f}".format(obj.cost_paid)
+    cost_paid_formated.short_description = "Cost Paid"
+    cost_paid_formated.admin_order_field = "cost_paid"
+
+    def cost_to_finish_formated(self , obj):
+        return "{:0,.2f}".format(obj.contract_value)
+    cost_to_finish_formated.short_description = "Cost to Finish"
+    cost_to_finish_formated.admin_order_field = "cost_to_finish"
+
+    def pic_name(self , obj):
+        return obj.pic +" - "+self.personel.get(obj.pic,"")
+    pic_name.short_description = "PIC"
+    pic_name.admin_order_field = "pic"
 
 
-admin.site.register(Question,QuestionAdmin)
-admin.site.register(Choice)
+###admin.site.register(Question,QuestionAdmin)
+###admin.site.register(Choice)
 admin.site.register(Dashboard,DashboardAdmin)
 
 

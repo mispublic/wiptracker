@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from trackingwip.views import pars_vrp1100
 from django.urls import path,include
+from jet import urls as jeturl
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('pars_vrp1100/', pars_vrp1100),
-    path('jet/', include('jet.urls', 'jet')),
+    path('jet/', include(jeturl, 'jet')),
 ]

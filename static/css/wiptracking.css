@@ -1,0 +1,33 @@
+#result_list thead tr th{
+    background-color: #182f58;
+}
+
+#result_list thead tr th a{
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+table thead th{
+    background-color: #182f58 !important;
+}
+
+table thead th a{
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+.info{
+    text-align: right;
+    margin: 15px 20px -35px;
+}
+
+.info .isi{
+    text-align: left;
+    text-align: left;
+    background: #fff;
+    padding: 15px 15px;
+    border: #182f58 1px solid;
+    margin: 10px;
+    border-radius: 5px 5px 0px 0px;
+    display: none;
+    }
