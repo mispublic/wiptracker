@@ -1,6 +1,20 @@
-from django.contrib import admin
-
+from django.contrib import admin,messages
 from .models import Question,Choice,Dashboard
+
+class NoLoginSite(admin.AdminSite):
+    site_header = 'WIP Tracking'
+    site_title = 'WIP Tracking'
+    index_title = 'WIP Tracking'
+
+    def login(self, request, extra_context=None):
+        if not request.user.is_authenticated:
+            from django.contrib.auth import authenticate, login as auth_login
+            try:
+                user = authenticate(request, username='anonymous', password="anonymous")
+                auth_login(request, user)
+            except:
+                messages.add_message(request,messages.ERROR,"no anoymous user registered")
+        return super().login(request,extra_context=extra_context)
 
 class QuestionAdmin(admin.ModelAdmin):
     list_display=('question_text','pub_date','choice')
@@ -56,10 +70,10 @@ class DashboardAdmin(admin.ModelAdmin):
     pic_name.short_description = "PIC"
     pic_name.admin_order_field = "pic"
 
-
+no_login_site = NoLoginSite(name='no_login_site')
 ###admin.site.register(Question,QuestionAdmin)
 ###admin.site.register(Choice)
-admin.site.register(Dashboard,DashboardAdmin)
+no_login_site.register(Dashboard,DashboardAdmin)
 
 
 

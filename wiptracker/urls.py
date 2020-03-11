@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from trackingwip.views import pars_vrp1100
 from django.urls import path,include
 from jet import urls as jeturl
+from trackingwip.views import pars_vrp1100
+from trackingwip.admin import no_login_site
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', no_login_site.urls),
+    path('admin/', admin.site.urls),
     path('pars_vrp1100/', pars_vrp1100),
     path('jet/', include(jeturl, 'jet')),
 ]
