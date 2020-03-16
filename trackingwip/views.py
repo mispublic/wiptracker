@@ -45,14 +45,35 @@ def pars_vrp1100(filepath="C:/development/wip-tracker/wiptracker/trackingwip/_as
             data={
                 "WOM" : line[38:44],
                 "Customer" : line[342:372],
-                "Contract" : line[385:402],
+                ###"Contract" : line[385:402],
                 "Paid" : line[265:284],
                 "Unpaid" : float(line[385:402]) - float(line[265:284]), 
                 "Material" : line[285:301],
                 "Manhour" : line[302:318],
-                "PIC" : line[45:51],
-                "FinishEstimation" : datetime.datetime.strptime(line[176:183], "%d%b%y").strftime("%Y-%m-%d") if line[176:183].strip() else None,
-                "CostFinish" : float(line[287:301]) + float(line[302:318]) + float(line[319:336])
+                ###"PIC" : line[45:51],
+                ###"FinishEstimation" : datetime.datetime.strptime(line[176:183], "%d%b%y").strftime("%Y-%m-%d") if line[176:183].strip() else None,
+                ###"CostFinish" : float(line[287:301]) + float(line[302:318]) + float(line[319:336])
+            }
+            
+            data_list.append(data)
+
+    return data_list
+
+def pars_saldousb(filepath="C:/development/wip-tracker/wiptracker/trackingwip/_asset/SALDOUSB"):
+    file=open(filepath,"r")
+    lines=file.readlines()
+    
+    data_list=[]
+    
+    for i,line in enumerate(lines):
+        if i > 4 :
+            data={
+                "WOM" : line[9:15],
+                "Customer" : line[37:40],
+                "Contract" : line[412:425],
+                "PIC" : line[321:327],
+                "Cost" : line[283:295],
+                "FinishEstimation" :datetime.datetime.strptime(line[51:58], "%d%b%y").strftime("%Y-%m-%d") if line[51:58].strip() else None,
             }
             
             data_list.append(data)

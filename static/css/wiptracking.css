@@ -18,7 +18,7 @@ table thead th a{
 
 .info{
     text-align: right;
-    margin: 10px 20px 0px 0px;
+    margin: 10px 20px 0px 20px;
 }
 
 .info .isi{
@@ -30,4 +30,14 @@ table thead th a{
     margin: 10px;
     border-radius: 5px 5px 0px 0px;
     display: none;
-    }
+   }
+
+.info .warning{
+    background-color: #e8212b;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}

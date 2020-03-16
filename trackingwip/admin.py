@@ -34,6 +34,12 @@ class DashboardAdmin(admin.ModelAdmin):
         "900056" : "TARYADI",
         "880141" : "MEINGKAR S.",
         "999086" : "MARGINATA SEBESTINA",
+        "871520" : "AGUS WAWAN",
+        "170013" : "EDI SUPRIADI AR",
+        "821462" : "EDI SUPRIADI AR",
+        "130012" : "ADITYO DWINANDA",
+        "999055" : "AFIYAN NAJAT",
+        "960057" : "RUDI PERMADI",
         
 
 
@@ -52,7 +58,7 @@ class DashboardAdmin(admin.ModelAdmin):
 
     def contract_value_formated(self , obj):
         return "{:0,.2f}".format(obj.contract_value)
-    contract_value_formated.short_description = "Contract Value"
+    contract_value_formated.short_description = "Quotation"
     contract_value_formated.admin_order_field = "contract_value"
     
     def cost_paid_formated(self , obj):
@@ -61,7 +67,7 @@ class DashboardAdmin(admin.ModelAdmin):
     cost_paid_formated.admin_order_field = "cost_paid"
 
     def cost_to_finish_formated(self , obj):
-        return "{:0,.2f}".format(obj.contract_value)
+        return "{:0,.2f}".format(obj.cost_to_finish)
     cost_to_finish_formated.short_description = "Cost to Finish"
     cost_to_finish_formated.admin_order_field = "cost_to_finish"
 

@@ -29,5 +29,7 @@ class Dashboard(models.Model):
     pic = models.CharField(max_length=30,default="")
     note = models.CharField(max_length=250,default="")
 
+    
+
 
 # Create your models here.
