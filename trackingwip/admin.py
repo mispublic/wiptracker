@@ -23,6 +23,9 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class DashboardAdmin(admin.ModelAdmin):
+
+    search_fields =('wom', 'customer', 'pic')
+
     personel={
         "940004" : "CHAIRUL ANWAR LUBIS",
         "871146" : "FERI SURYAKUSUMAH",
