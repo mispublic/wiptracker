@@ -61,7 +61,7 @@ class DashboardAdmin(admin.ModelAdmin):
 
     def contract_value_formated(self , obj):
         return "{:0,.2f}".format(obj.contract_value)
-    contract_value_formated.short_description = "Quotation"
+    contract_value_formated.short_description = "Value"
     contract_value_formated.admin_order_field = "contract_value"
     
     def cost_paid_formated(self , obj):
@@ -70,7 +70,10 @@ class DashboardAdmin(admin.ModelAdmin):
     cost_paid_formated.admin_order_field = "cost_paid"
 
     def cost_to_finish_formated(self , obj):
-        return "{:0,.2f}".format(obj.cost_to_finish)
+        if obj.cost_to_finish:
+            return "{:0,.2f}".format(obj.cost_to_finish)
+        else :
+            return "-"
     cost_to_finish_formated.short_description = "Cost to Finish"
     cost_to_finish_formated.admin_order_field = "cost_to_finish"
 

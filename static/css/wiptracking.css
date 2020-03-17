@@ -29,15 +29,13 @@ table thead th a{
     border: #182f58 1px solid;
     margin: 10px;
     border-radius: 5px 5px 0px 0px;
-    display: none;
+    display: block;
+    color: #000;
    }
 
-.info .warning{
-    background-color: #e8212b;
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    padding: 10px;
-    color: #fff;
-    border-radius: 5px;
+.info warning{
+    background-color: red;
+    margin-left: 10px;
+    padding: 2px 10px;
+    color: white;   
 }

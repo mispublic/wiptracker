@@ -105,7 +105,7 @@
             <ul>
                 <li> Main WIP : WIP Dari Project</li>
                 <li> Customer : Nama Customer</li>
-                <li> Quotaion : Nilai pekerjaan Pada WIP Terkait</li>
+                <li> Value : Nilai Quotation* pekerjaan Pada WIP Terkait <warning>*Quotation tidak selalu akurat, karena user terkadang tidak melakukan update apabila ada perubahan nilai kontrak</warning></li>
                 <li> PIC : Person In Charge</li>
                 <li> Paid By Customer : Nilai yang sudah di bayar oleh customer</li>
                 <li> Unpaid By Customer : Nilai yang belum dibayar oleh customer</li>
@@ -114,8 +114,7 @@
                 <li> Deadline : Deadline Project</li>
                 <li> Finish Estimation : Estimasi project Selesai</li>
             </ul>
-        </div>
-        <div class="warning">*Quotation tidak selalu akurat, karena user terkadang tidak melakukan update apabila ada perubahan nilai kontrak</div>   
+        </div> 
     </div>
     
     <!-- Content -->
@@ -418,10 +417,10 @@
 <script>
     function HelpInfo() {
       var x = document.getElementById("isi");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
+      if (x.style.display === "none") {
         x.style.display = "block";
+      } else {
+        x.style.display = "none";
       }
     }
     </script>
