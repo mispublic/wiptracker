@@ -16,6 +16,8 @@ class Command(BaseCommand):
                     "cost_paid":data["Cost"],
                     "contract_value":data["Contract"],
                     "pic":data["PIC"],
+                    "paid_by_customer":data["PaidbyCustomer"],
+                    "unpaid_by_customer":data["Unpaid"],
                     "finish_estimation":data["FinishEstimation"],
                 }
 

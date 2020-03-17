@@ -69,9 +69,11 @@ def pars_saldousb(filepath="C:/development/wip-tracker/wiptracker/trackingwip/_a
         if i > 4 :
             data={
                 "WOM" : line[9:15],
-                "Customer" : line[37:40],
+                "Customer" : line[475:507],
                 "Contract" : line[412:425],
                 "PIC" : line[321:327],
+                "PaidbyCustomer" : line[574:586],
+                "Unpaid" : float(line[412:425]) - float(line[574:586]),
                 "Cost" : line[283:295],
                 "FinishEstimation" :datetime.datetime.strptime(line[51:58], "%d%b%y").strftime("%Y-%m-%d") if line[51:58].strip() else None,
             }
